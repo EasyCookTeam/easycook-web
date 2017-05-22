@@ -5,6 +5,16 @@ class IngredientsController < ApplicationController
   # GET /ingredients.json
   def index
     @ingredients = Ingredient.all
+
+    if params[:tag]
+      @ingredients = Ingredient.tagged_with(params[:tag])
+    else
+      @ingredients = Ingredient.all
+    end
+  end
+
+  def tags
+    @tags = Recipe.tag_counts
   end
 
   # GET /ingredients/1

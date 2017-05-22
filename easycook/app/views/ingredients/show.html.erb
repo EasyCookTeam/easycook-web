@@ -10,5 +10,10 @@
   <%= @ingredient.description %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= @ingredient.tag_list %>
+ </p>
+
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

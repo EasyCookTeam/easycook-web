@@ -1,25 +1,50 @@
-<h2>Change your password</h2>
+<section id="loguin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Mude sua senha</h2>
+            </div>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <%= f.label :email %><br />
+                                <%= f.email_field :email, :required => true, autofocus: true, class: "form-control", placeholder: "Coloque aqui seu email *"%>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :password, "Coloque sua nova senha. *" %><br />
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                                <% if @minimum_password_length %>
+                                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                                <% end %>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
+                                <%= f.password_field :password, autocomplete: "off", :required => true, class: "form-control", placeholder: "Coloque sua nova senha. *"%>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :password_confirmation, "Confirme sua senha. *" %><br />
+                                <%= f.password_field :password_confirmation, autocomplete: "off", :required => true, class: "form-control", placeholder: "Confirme sua senha. *"%>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center", id="success">
+                            <%= f.submit "Change my password" , class: "btn btn-xl"%>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <% end %>
-
 <%= render "devise/shared/links" %>

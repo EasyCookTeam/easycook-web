@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   resources :ingredients
 
   get 'tags/:tag', to: 'ingredients#index', as: :tag

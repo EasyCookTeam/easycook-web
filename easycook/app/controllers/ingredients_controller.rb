@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
     if params[:tag]
       @ingredients = Ingredient.tagged_with(params[:tag])
     else
-      @ingredients = Ingredient.all
+      @ingredients = Ingredient.search(params[:search])
     end
   end
 

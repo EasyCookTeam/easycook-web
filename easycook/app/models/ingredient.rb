@@ -1,4 +1,5 @@
 class Ingredient < ApplicationRecord
+  # Associate recipes and ingredients
   has_and_belongs_to_many :recipes
 
   acts_as_taggable

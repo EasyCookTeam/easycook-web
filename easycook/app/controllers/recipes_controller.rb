@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @ingredients = Ingredient.all
   end
 
   # GET /recipes/1
@@ -14,11 +15,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
+    @ingredients = Ingredient.all
     @recipe = Recipe.new
   end
 
   # GET /recipes/1/edit
   def edit
+    @ingredients = Ingredient.all
   end
 
   # POST /recipes

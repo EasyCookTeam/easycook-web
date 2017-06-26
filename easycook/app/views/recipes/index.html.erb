@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Ingredients</th>
       <th>Preparing</th>
       <th colspan="3"></th>
     </tr>
@@ -17,6 +18,11 @@
       <tr>
         <td><%= recipe.name %></td>
         <td><%= recipe.description %></td>
+        <td>
+          <% recipe.ingredients.each do |ingredient| %>
+            <%= ingredient.name %><br>
+          <% end %>
+        </td>
         <td><%= recipe.preparing %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>

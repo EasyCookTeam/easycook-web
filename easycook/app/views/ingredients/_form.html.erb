@@ -1,3 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Ingrediente</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+
 <%= form_for(ingredient) do |f| %>
   <% if ingredient.errors.any? %>
     <div id="error_explanation">
@@ -11,19 +21,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+          <%= f.label :nome %><br/>
+          <%= f.text_field :name, class: "form-control", placeholder: "Coloque aqui o nome do ingrediente *"%>
+      </div>
+
+  <div class="form-group">
+    <%= f.label :descrição %><br/>
+    <%= f.text_field :description, class: "form-control", placeholder: "Coloque aqui a descrição do ingrediente"%>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tag_list, "Tags (separated by commas)" %><br>
-    <%= f.text_field :tag_list %>
+  <div class="form-group">
+    <%= f.label :tag_list, "Tags (Separadas por Ponto)" %><br>
+    <%= f.text_field :tag_list, class:"form-control", placeholder: "Tags separadas por ponto" %>
   </div>
 
   <div class="actions">

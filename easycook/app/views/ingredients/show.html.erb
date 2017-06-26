@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingredient.name %>
-</p>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h2 class="section-heading"><%= @ingredient.name %></h2>
+    </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ingredient.description %>
-</p>
+<div>
+  <p>
+    <strong>Nome:</strong>
+    <%= @ingredient.name %>
+  </p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @ingredient.tag_list %>
- </p>
+  <p>
+    <strong>Descrição:</strong>
+    <%= @ingredient.description %>
+  </p>
 
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+  <p>
+    <strong>Tags:</strong>
+    <%= @ingredient.tag_list %>
+   </p>
+</div>
+
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) , class:"btn btn-xl"%>
+<%= link_to 'Back', ingredients_path, class:"btn btn-xl"%>

@@ -225,8 +225,14 @@ fieldset[disabled] .btn-xl.active {
     font-size: 1.5em;
   }
 }
-header {
+
+/*#home-index{
   background-image: url('header-bg.jpg');
+
+}*/
+
+header {
+  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

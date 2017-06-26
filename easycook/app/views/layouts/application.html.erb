@@ -1,7 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Easycook</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="app/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="app/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <!-- Theme CSS -->
+        <link href="app/assets/stylesheets/agency.min.css" rel="stylesheet">
+
+
+</head>
+
+    <body id="page-top" class="index">
+
+        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="">EasyCook</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                      <% if user_signed_in? %>
+                            <li>
+                                <a class="page-scroll" href="/recipes">Receitas</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="/ingredients">Ingredientes</a>
+                            </li>
+                            <li><%= link_to "Profile", edit_user_registration_path %></li>
+                            <li> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+
+                      <% else %>
+                        <li><%= link_to "Sign in", new_user_session_path %></li>
+                      <% end %>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
   <ul class="nav pull-right">

@@ -1,37 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
+<br>
+<br>
+<br>
+  <div class="row">
+      <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Receitas</h2>
+      </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Ingredients</th>
-      <th>Preparing</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_tag recipes_path, :method => 'get' do %>
+  <p>
+    <div>
+    <div class="col-xs-4 col-xs-offset-4 text-center">
+      <div id="search-ingredients">
+      <%= text_field_tag :search, params[:search], class: "form-control" %>
+      <%= submit_tag "Procurar", :name => nil, class:"btn btn-xl"%>
+    </div>
+  </p>
+<% end %>
 
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.description %></td>
-        <td>
-          <% recipe.ingredients.each do |ingredient| %>
-            <%= ingredient.name %><br>
-          <% end %>
-        </td>
-        <td><%= recipe.preparing %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'Nova Receita', new_recipe_path , class:"btn btn-xl"%>
 
 <br>
+<br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+	<div class="row">
+        <div class="span12">
+    		<table class="table table-condensed table-hover">
+    			<thead>
+    				<tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Ingredients</th>
+              <th>Preparing</th>
+              <th colspan="3"></th>
+    				</tr>
+    			</thead>
+    			<tbody>
+            <% @recipes.each do |recipe| %>
+              <tr>
+                <td><%= recipe.name %></td>
+                <td><%= recipe.description %></td>
+                <td>
+                  <% recipe.ingredients.each do |ingredient| %>
+                    <%= ingredient.name %><br>
+                  <% end %>
+                </td>
+                <td><%= recipe.preparing %></td>
+              <td><%= link_to image_tag("eye.png", width:24, height:24, border: 0, alt:"Visualizar", title:"Visualizar"), recipe_path(recipe) %></td>
+              <td><%= link_to image_tag("settings.png", width:24, height:24, border: 0, alt:"Editar", title:"Editar"), edit_recipe_path(recipe) %></td>
+              <td><%= link_to image_tag("delete-button.png", width:24, height:24, border: 0, alt:"Deletar", title:"Deletar"),
+                                        recipe, method: :delete, data:
+                                        { confirm: 'Você tem certeza que quer deletar essa Receita?' } %></td>
+    				</tr>
+            <% end %>
+    			</tbody>
+    		</table>
+    	</div>
+	</div>

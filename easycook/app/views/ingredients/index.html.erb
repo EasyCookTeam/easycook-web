@@ -31,7 +31,6 @@
             <% @ingredients.each do |ingredient| %>
     				<tr>
               <td><%= ingredient.name %></td>
-              <td><%= ingredient.description %></td>
               <td><%= raw ingredient.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
               <td><%= link_to image_tag("eye.svg", width:24, height:24, border: 0), ingredient_path(ingredient) %></td>
               <td><%= link_to image_tag("settings.svg", width:24, height:24, border: 0), edit_ingredient_path(ingredient) %></td>

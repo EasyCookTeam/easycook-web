@@ -11,4 +11,12 @@ class Recipe < ApplicationRecord
     def category_name=(name)
       self.ingredients = Category.find_by_or_create_name(name) if name.present?
     end
+
+    def self.search(search)
+      if search
+        self.where("name like ?", "%#{search}%")
+      else
+        self.all
+      end
+    end
 end

@@ -1,23 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-lg-12 text-center">
+      <div class="intro-text">
+          <div class="intro-lead-in", id="ingredients-index">Huuum Chef, temos um(a) delicioso(a) "<%= @recipe.name %>" aqui!</div>
+    </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+<div>
+  <p>
+    <div class="intro-lead-in", id="ingredients-index">Receita:</div>
+    <div class="intro-lead-in", id="ingredients-atributes"><%= @recipe.name %></div>
+  </p>
 
-<p>
-    In ingredients: <%= @recipe.ingredients.map(&:name).join(',') %>
-</p>
+  <p>
+    <div class="intro-lead-in", id="ingredients-index">Descrição:</div>
+    <div class="intro-lead-in", id="ingredients-atributes"><%= @recipe.description %></div>
+  </p>
 
-<p>
-  <strong>Preparing:</strong>
-  <%= @recipe.preparing %>
-</p>
+  <p>
+    <div class="intro-lead-in", id="ingredients-index">Ingredientes:</div>
+    <div class="intro-lead-in", id="ingredients-atributes"><%= @recipe.ingredients.map(&:name).join(',') %></div>
+   </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+   <p>
+     <div class="intro-lead-in", id="ingredients-index">Modo de Preparo:</div>
+     <div class="intro-lead-in", id="ingredients-atributes"><%= @recipe.preparing %></div>
+    </p>
+
+</div>
+
+<%= link_to 'Editar', edit_recipe_path(@recipe) , class:"btn btn-xl"%>
+<%= link_to 'Voltar', recipes_path , class:"btn btn-xl"%>

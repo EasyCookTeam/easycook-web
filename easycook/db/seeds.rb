@@ -6,15 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-r = Recipe.new(name: 'Sexo anal')
-Recipe.create(name: 'Furniture')
-Recipe.create(name: 'Groceries')
-Recipe.create(name: 'Electronics')
-
-i = Ingredient.create(name: 'seucu')
-Ingredient.create(name: 'acucar' )
-Ingredient.create( name: 'vagina' )
-Ingredient.create( name: 'merengue')
-
-r.ingredients << i
-r.save!
+i = Ingredient.create(name: 'Arroz')
+Ingredient.create(name: 'Feijão' )
+Ingredient.create( name: 'Picles' )
+Ingredient.create( name: 'Merengue')
+Ingredient.create( name: 'Pimenta de Cheiro')
+Ingredient.create( name: 'Mastruz')
+Ingredient.create( name: 'Leite')
+Ingredient.create( name: 'Caju')
+Ingredient.create( name: 'Mel')
+Ingredient.create( name: 'Vinagre')
+Ingredient.create( name: 'Anchova')

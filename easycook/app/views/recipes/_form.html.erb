@@ -21,26 +21,10 @@
     <%= f.text_field :description %>
   </div>
 
-  <table id="recipe_ingredients">
-    <thead>
-      <tr>
-        <th data-field="name">Ingrediente</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @ingredients.each do |i| %>
-        <tr>
-          <td>
-            <input id=<%= "recipe-ingredient-" + i.id.to_s %> name="recipe[ingredient_ids][]" type="checkbox" value=<%= i.id.to_s %>/>
-            <label for=<%= "recipe-ingredient-" + i.id.to_s %>><%= i.name %></label>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div class="row">
-    <%= link_to 'Novo Ingrediente', new_ingredient_path %>
+  <div class="field">
+    <%= f.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name, checked: recipe.ingredients.map(&:id)) do |b| %>
+      <%= b.check_box %> <%= b.label %>
+    <% end %>
   </div>
 
   <div class="field">

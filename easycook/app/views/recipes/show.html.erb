@@ -11,6 +11,10 @@
 </p>
 
 <p>
+    In ingredients: <%= @recipe.ingredients.map(&:name).join(',') %>
+</p>
+
+<p>
   <strong>Preparing:</strong>
   <%= @recipe.preparing %>
 </p>

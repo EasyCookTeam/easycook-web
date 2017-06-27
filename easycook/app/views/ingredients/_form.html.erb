@@ -37,7 +37,12 @@
     <%= f.text_field :tag_list, class:"form-control", placeholder: "Tags separadas por ponto" %>
   </div>
 
+<div class="col-lg-12 text-center">
   <div class="actions">
-    <%= f.submit %>
+      <% if ingredient.name != nil%>
+          <%= f.submit "Atualizar", class:"btn btn-xl"%>
+      <% else %>
+          <%= f.submit "Criar", class:"btn btn-xl"%>
+      <% end %>
   </div>
 <% end %>
